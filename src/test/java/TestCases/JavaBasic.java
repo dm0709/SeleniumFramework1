@@ -18,6 +18,5 @@ public class JavaBasic {
         System.out.println("Subtract "+ age +" from "+ ages + ": " + (ages - age));
         System.out.println("Multiply "+ ages +" by "+ age + ": " + (ages * age));
         System.out.println("Divide "+ ages +" by "+ age + ": " + (ages / age));
-
     }
 }
