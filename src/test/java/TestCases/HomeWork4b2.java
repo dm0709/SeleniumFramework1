@@ -40,10 +40,6 @@ public class HomeWork4b2 {
     }
 
     @Test
-    public void openSite(){
-    }
-
-    @Test
     public void openSignInPage() {
         openSignIn();
     }
