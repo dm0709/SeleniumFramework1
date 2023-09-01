@@ -5,13 +5,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
+import pageobjects.SignUpPage;
 
 public class BaseTest {
 
     public ChromeDriver driver;
-    public String MySite = "https://test.my-fork.com/";
+
     HomePage  homePage;
     LoginPage loginPage;
+    SignUpPage signUpPage;
 
     @BeforeMethod
     public void startdrvOpenSite() {
@@ -21,7 +23,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
-        driver.get(MySite);
+        signUpPage = new SignUpPage(driver);
     }
 
     @AfterMethod
