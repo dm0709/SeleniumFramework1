@@ -4,6 +4,11 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     @Test
+    public void openSiteOnly() throws InterruptedException {
+        homePage.openMySite1();
+        Thread.sleep(9000);//just to check switching happened
+    }
+    @Test
     public void validateFields() throws InterruptedException {
         homePage.openMySite();
         homePage.openSignIn();

@@ -7,6 +7,8 @@ import pageobjects.HomePage;
 import pageobjects.LoginPage;
 import pageobjects.SignUpPage;
 
+import java.time.Duration;
+
 public class BaseTest {
 
     public ChromeDriver driver;
@@ -24,6 +26,8 @@ public class BaseTest {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     @AfterMethod

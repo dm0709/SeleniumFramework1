@@ -2,6 +2,11 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.sql.Driver;
+import java.time.Duration;
 
 public class LoginPage extends BaseMain{
 
@@ -16,11 +21,12 @@ public class LoginPage extends BaseMain{
     private String errorFld = "//div[@class='test-login-errors']/p[text()='Error: email is incorrect']";
     private String rememberChck = "//input[@type='checkbox']";
 
-    public void fillingFldsAndLog() throws InterruptedException {
+    public void fillingFldsAndLog()  {
         driver.findElement(By.xpath(mailFld)).sendKeys(MyEmail);
         driver.findElement(By.xpath(passFld)).sendKeys(MyPass);
         driver.findElement(By.xpath(LogBtn2)).click();
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
+
     }
 
     public void checkIfDisplayed (){
@@ -30,6 +36,8 @@ public class LoginPage extends BaseMain{
     }
 
     public void checkErrorDisplyed (){
+        WebDriverWait waitForError = new WebDriverWait(driver, Duration.ofSeconds(22));
+        waitForError.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(errorFld)));
         System.out.println(driver.findElement(By.xpath(errorFld)).isDisplayed());
     }
 

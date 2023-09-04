@@ -1,6 +1,7 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomePage extends BaseMain {
@@ -16,14 +17,20 @@ public class HomePage extends BaseMain {
 
     public void openSignIn() throws InterruptedException {
         driver.findElement(By.xpath(LogBtn)).click();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
     }
     public void openSignUP() throws InterruptedException {
         driver.findElement(By.xpath(SignUpBtn)).click();
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
     }
     public void openMySite(){
         driver.get(MySite);
+    }
+    public void openMySite1(){
+        driver.get(MySite);
+        driver.switchTo().newWindow(WindowType.TAB);
+        handleTab(0);
+        scrollPage(500);
     }
 
 }
