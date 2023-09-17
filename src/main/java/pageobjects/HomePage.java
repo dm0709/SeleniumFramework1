@@ -13,7 +13,7 @@ public class HomePage extends BaseMain {
     private String LogBtn = "//div[@class='menu']/a[@class='menu-item log-in-button']";
     private String SignUpBtn = "//div[@class='menu']/a[@class='menu-item sign-in-button']";
 
-
+    BaseMain baseMain;
 
     public void openSignIn() throws InterruptedException {
         driver.findElement(By.xpath(LogBtn)).click();
@@ -32,5 +32,6 @@ public class HomePage extends BaseMain {
         handleTab(0);
         scrollPage(500);
     }
+
 
 }

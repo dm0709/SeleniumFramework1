@@ -1,5 +1,7 @@
 package TestCases;
+
 import org.testng.annotations.Test;
+
 
 public class LoginTest extends BaseTest {
 
@@ -35,6 +37,7 @@ public class LoginTest extends BaseTest {
         homePage.openMySite();
         homePage.openSignIn();
         loginPage.checkRemeberMe();
+
     }
 
 

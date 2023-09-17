@@ -4,12 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-import java.sql.Driver;
 import java.time.Duration;
 
 public class LoginPage extends BaseMain{
-
+    BaseMain baseMain = new BaseMain(driver);
     public LoginPage (ChromeDriver driver){
         super(driver);
     }
@@ -22,6 +22,7 @@ public class LoginPage extends BaseMain{
     private String rememberChck = "//input[@type='checkbox']";
 
     public void fillingFldsAndLog()  {
+
         driver.findElement(By.xpath(mailFld)).sendKeys(MyEmail);
         driver.findElement(By.xpath(passFld)).sendKeys(MyPass);
         driver.findElement(By.xpath(LogBtn2)).click();
@@ -42,8 +43,15 @@ public class LoginPage extends BaseMain{
     }
 
     public void checkRemeberMe(){
+
         System.out.println(driver.findElement(By.xpath(rememberChck)).isSelected());
     }
+
+    public void hardCheckRemeberMe(){
+
+        Assert.assertFalse(driver.findElement(By.xpath(rememberChck)).isSelected());
+    }
+
 
 
 }

@@ -20,8 +20,8 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>7.7.1</version>
-      <scope>test</scope>
+      <version>7.8.0</version>
+
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
@@ -29,12 +29,7 @@
       <artifactId>selenium-java</artifactId>
       <version>4.10.0</version>
     </dependency>
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>RELEASE</version>
-          <scope>compile</scope>
-      </dependency>
+
 
   </dependencies>
 </project>
