@@ -1,5 +1,6 @@
 target/
-src/test/resources/
+test-output/
+src/test/resources/chromedriver.exe
 ### IntelliJ IDEA ###
 
 .idea/
