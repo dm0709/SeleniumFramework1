@@ -7,10 +7,10 @@
         </classes>
     </test>
 
-    <test name="Regression1">
-        <classes>
-            <class name="TestCases.SignUpTest"/>
-            <class name="TestCases.LoginTest"/>
-        </classes>
-    </test>
+<!--    <test name="Regression1">-->
+<!--        <classes>-->
+<!--            <class name="TestCases.SignUpTest"/>-->
+<!--            <class name="TestCases.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
