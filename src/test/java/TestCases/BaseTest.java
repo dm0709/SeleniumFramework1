@@ -17,7 +17,7 @@ public class BaseTest {
     LoginPage loginPage;
     SignUpPage signUpPage;
 
-    @BeforeMethod
+    @BeforeMethod (groups = "smoke,regression", alwaysRun = true)
     public void startdrvOpenSite() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\dm070\\OneDrive\\Desktop\\SeleniumFramework1\\target\\test-classes\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
@@ -30,7 +30,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
-    @AfterMethod
+    @AfterMethod(groups = "smoke,regression",alwaysRun = true)
     public void drvQuit() throws InterruptedException {
         Thread.sleep(2000);
         driver.quit();

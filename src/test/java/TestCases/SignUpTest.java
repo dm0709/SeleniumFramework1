@@ -4,11 +4,12 @@ import org.testng.annotations.Test;
 
 public class SignUpTest extends BaseTest{
 
-    @Test
+    @Test (groups = { "smoke"})
     public void DDmenuTest () throws InterruptedException {
         homePage.openMySite();
         homePage.openSignUP();
         signUpPage.dropDownCheck1();
+        System.out.println("test4");
     }
 
     @Test
