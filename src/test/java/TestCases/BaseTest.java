@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
+import pageobjects.QuizPage;
 import pageobjects.SignUpPage;
 
 import java.time.Duration;
@@ -16,6 +17,8 @@ public class BaseTest {
     HomePage  homePage;
     LoginPage loginPage;
     SignUpPage signUpPage;
+    QuizPage quizPage;
+
 
     @BeforeMethod (groups = "smoke,regression", alwaysRun = true)
     public void startdrvOpenSite() {
@@ -26,8 +29,9 @@ public class BaseTest {
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         signUpPage = new SignUpPage(driver);
+        quizPage = new QuizPage(driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod(groups = "smoke,regression",alwaysRun = true)

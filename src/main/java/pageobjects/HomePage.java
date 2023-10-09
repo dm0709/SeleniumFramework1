@@ -13,9 +13,15 @@ public class HomePage extends BaseMain {
     private String LogBtn = "//div[@class='menu']/a[@class='menu-item log-in-button']";
     private String SignUpBtn = "//div[@class='menu']/a[@class='menu-item sign-in-button']";
 
-    BaseMain baseMain;
+    By courseGalleryButton = By.xpath("//div[text()='Course Gallery']");
 
-    public void openSignIn() throws InterruptedException {
+    BaseMain baseMain;
+    public void openCourseGallery() {
+        driver.findElement(courseGalleryButton).click();
+
+    }
+
+    public void openSignIn()  {
         driver.findElement(By.xpath(LogBtn)).click();
 //        Thread.sleep(3000);
     }

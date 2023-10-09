@@ -15,6 +15,8 @@ public class LoginPage extends BaseMain{
     }
     private String MyEmail = "qas@gmail.com";
     private String MyPass = "qwerty";
+    private String HWEmail = "testing@my-fork.com";
+    private String HWPass = "Password";
     private String mailFld = "//input[@id='email']";
     private String passFld = "//input[@id='password']";
     private String LogBtn2 = "//button[text()='Log In']";
@@ -25,6 +27,13 @@ public class LoginPage extends BaseMain{
 
         driver.findElement(By.xpath(mailFld)).sendKeys(MyEmail);
         driver.findElement(By.xpath(passFld)).sendKeys(MyPass);
+        driver.findElement(By.xpath(LogBtn2)).click();
+//        Thread.sleep(5000);
+
+    }    public void fillingFldsAndLog2()  {
+
+        driver.findElement(By.xpath(mailFld)).sendKeys(HWEmail);
+        driver.findElement(By.xpath(passFld)).sendKeys(HWPass);
         driver.findElement(By.xpath(LogBtn2)).click();
 //        Thread.sleep(5000);
 
