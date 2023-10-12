@@ -11,7 +11,7 @@ public class End2End_Test extends BaseTest{
         quizPage.checkHistoryButtonFalse();
         homePage.openMySite();
         homePage.openSignIn();
-        loginPage.fillingFldsAndLog2();
+        loginPage.loginAs("testing@my-fork.com","Password");
         homePage.openCourseGallery();
         quizPage.checkHistoryButtonTrue();
     }
@@ -26,17 +26,18 @@ public class End2End_Test extends BaseTest{
         homePage.openMySite();
         homePage.openCourseGallery();
         quizPage.startQuiz();
+
+        double numOfquestions = quizPage.numberOfQuestions();
         homePage.handleTab(1);
+
+        for (int i = 1; i <= numOfquestions ; i++) {
         quizPage.click1Answer();
-        double firstAnswer = quizPage.checkingProgressValue(1);
+        double firstAnswer = quizPage.checkingProgressValue(i,numOfquestions);
         quizPage.clickNext();
+        System.out.println("pressing next");
         double valueAfterNextPressing = quizPage.getProgressValue();
         quizPage.checkProgressAfterNextPressin(firstAnswer,valueAfterNextPressing);
-        quizPage.click1Answer();
-        double valueAfterNextPressing2 = quizPage.getProgressValue();
-        quizPage.checkProgressAfterNextPressin2(valueAfterNextPressing,valueAfterNextPressing2);
-        quizPage.checkingProgressValue(2);
-
+        }
 
     }
 
