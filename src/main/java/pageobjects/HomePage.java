@@ -4,10 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.logging.Logger;
+
 public class HomePage extends BaseMain {
     public String MySite = "https://test.my-fork.com/";
-    public HomePage (ChromeDriver driver){
-        super(driver);
+    public HomePage (ChromeDriver driver, Logger log){
+        super(driver,log);
     }
 
     private String LogBtn = "//div[@class='menu']/a[@class='menu-item log-in-button']";
@@ -17,12 +19,12 @@ public class HomePage extends BaseMain {
 
     BaseMain baseMain;
     public void openCourseGallery() {
-        driver.findElement(courseGalleryButton).click();
-
+        clickUsingXpath(courseGalleryButton,"Course Button");
     }
 
     public void openSignIn()  {
-        driver.findElement(By.xpath(LogBtn)).click();
+        clickUsingXpath(LogBtn,"Sign In button");
+
 //        Thread.sleep(3000);
     }
     public void openSignUP() throws InterruptedException {

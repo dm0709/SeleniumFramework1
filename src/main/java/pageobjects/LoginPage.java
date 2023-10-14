@@ -7,11 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.logging.Logger;
 
 public class LoginPage extends BaseMain{
-    BaseMain baseMain = new BaseMain(driver);
-    public LoginPage (ChromeDriver driver){
-        super(driver);
+
+    BaseMain baseMain;
+    public LoginPage (ChromeDriver driver, Logger log){
+        super(driver,log);
     }
     private String MyEmail = "qas@gmail.com";
     private String MyPass = "qwerty";
@@ -28,12 +30,12 @@ public class LoginPage extends BaseMain{
         driver.findElement(By.xpath(passFld)).sendKeys(MyPass);
         driver.findElement(By.xpath(LogBtn2)).click();
 //        Thread.sleep(5000);
+    }
+    public void loginAs(String email,String pass)  {
+        typeUsingXpath (mailFld,"mailField", email);
+        typeUsingXpath (passFld,"passwordField", pass);
+        clickUsingXpath(LogBtn2,"LogIn button");
 
-    }    public void loginAs(String email,String pass)  {
-
-        driver.findElement(By.xpath(mailFld)).sendKeys(email);
-        driver.findElement(By.xpath(passFld)).sendKeys(pass);
-        driver.findElement(By.xpath(LogBtn2)).click();
 //        Thread.sleep(5000);
 
     }

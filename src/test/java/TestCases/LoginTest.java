@@ -8,8 +8,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void openSiteOnly() throws InterruptedException {
         homePage.openMySite1();
-        System.out.println("test11");
-        Thread.sleep(9000);//just to check switching happened
+        log.info("test11");
+        Thread.sleep(1000);//just to check switching happened
     }
 
     @Test(priority = 3, groups = { "smoke", "regression" })

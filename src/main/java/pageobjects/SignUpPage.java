@@ -9,13 +9,15 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class SignUpPage extends BaseMain {
     private String SignUppath = "job-title";
-    public SignUpPage (ChromeDriver driver){
-        super(driver);
+    public SignUpPage (ChromeDriver driver, Logger log){
+        super(driver,log);
     }
-    BaseMain baseMain = new BaseMain(driver);
+    //BaseMain baseMain = new BaseMain(driver);
+    BaseMain baseMain;
     public void dropDownCheck1(){
         String[] rolesOK = {"Junior level Developer", "Middle level Developer", "Senior level Developer",
                 "Leading Developer", "QA Analyst", "Software Tester", "QA Engineer", "Senior QA Engineer",

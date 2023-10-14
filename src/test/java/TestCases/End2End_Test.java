@@ -6,6 +6,7 @@ public class End2End_Test extends BaseTest{
 
     @Test
     public void scenario1()  {
+        log.info("Beginning 1st scenario");
         homePage.openMySite();
         homePage.openCourseGallery();
         quizPage.checkHistoryButtonFalse();
@@ -17,12 +18,14 @@ public class End2End_Test extends BaseTest{
     }
     @Test
     public void scenario2(){
+        log.info("Beginning 2nd scenario");
         homePage.openMySite();
         homePage.openCourseGallery();
         quizPage.quizTabVerification(quizPage.quizTabs());
     }
     @Test
     public void scenario3()  {
+        log.info("Beginning 3rd scenario");
         homePage.openMySite();
         homePage.openCourseGallery();
         quizPage.startQuiz();
@@ -34,9 +37,10 @@ public class End2End_Test extends BaseTest{
         quizPage.click1Answer();
         double firstAnswer = quizPage.checkingProgressValue(i,numOfquestions);
         quizPage.clickNext();
-        System.out.println("pressing next");
+        System.out.println("pressing next, step "+i);
         double valueAfterNextPressing = quizPage.getProgressValue();
         quizPage.checkProgressAfterNextPressin(firstAnswer,valueAfterNextPressing);
+        log.info("Progress Bar Verification successful!");
         }
 
     }

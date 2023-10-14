@@ -9,11 +9,13 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class QuizPage extends BaseMain{
-    BaseMain baseMain = new BaseMain(driver);
-    public QuizPage(ChromeDriver driver) {
-        super(driver);
+    //BaseMain baseMain = new BaseMain(driver);
+    BaseMain baseMain;
+    public QuizPage(ChromeDriver driver, Logger log) {
+        super(driver,log);
     }
     public By quizTopicsTab = By.xpath("//div[contains(@class,'expertise-areas-item')]");
     public By startQuizButton = By.xpath("//a[@ href='/quiz/run/10']/div");
@@ -29,6 +31,7 @@ public class QuizPage extends BaseMain{
         Assert.assertFalse(checkHistoryProcedure());
     }
     public void checkHistoryButtonTrue (){
+
         Assert.assertTrue(checkHistoryProcedure());
     }
     public boolean checkHistoryProcedure(){
@@ -50,42 +53,48 @@ public class QuizPage extends BaseMain{
 
     }
     public void quizTabVerification(List<String> actual){
-        Assert.assertEquals(actual,expected);
+
+        validateStringWithAssertEqual(actual,expected);//3th method++++++++++
     }
 
 
     public double numberOfQuestions(){
-        String num = driver.findElement(numQuestions).getText();
+        String num = getHeaderTextUsingXpath(numQuestions,"Question counter");//4th method+++++++++++
         double numberQuestionsInt = Integer.parseInt(num.substring(num.indexOf("/")+2));
         return numberQuestionsInt;
     }
     public void startQuiz(){
-        driver.findElement(startQuizButton).click();
+        clickUsingXpath(startQuizButton,"Start Quiz button");
+        //driver.findElement(startQuizButton).click();
     }
     public void click1Answer()  {
-        driver.findElement(selectFirstAnswer).click();
+        clickUsingXpath(selectFirstAnswer,"Answer");
+        //driver.findElement(selectFirstAnswer).click();
 
     }
 
     public double getProgressValue(){
-        String value = driver.findElement(progressValue).getText();
+        String value = getHeaderTextUsingXpath(progressValue,"Progress bar");//4th method+++++++++
         double seenProgressValue = Integer.parseInt(value.substring(0,value.length()-1));
         return seenProgressValue;
     }
     public double checkingProgressValue(int step, double num) {
 
-        double seenProgressValue = getProgressValue();
-        double actualProgressValue = Math.floor(step/num*100);
-        Assert.assertEquals(actualProgressValue,seenProgressValue);
-        System.out.println(actualProgressValue +" / " +seenProgressValue);
-        return seenProgressValue;
+        double actualProgressValue = getProgressValue();
+        double expectedProgressValue = Math.floor(step/num*100);
+        Assert.assertEquals(expectedProgressValue,actualProgressValue);
+        System.out.println("Expected: "+ expectedProgressValue +" ------ Actual: " +actualProgressValue);
+        return actualProgressValue;
 
     }
     public void clickNext(){
-        driver.findElement(nextButton).click();
+        clickUsingXpath(nextButton,"Next Button");
+        //driver.findElement(nextButton).click();
     }
     public void checkProgressAfterNextPressin(double a,double b){
-        Assert.assertEquals(a,b);
+
+        Assert.assertEquals(a,b);//
+
     }
 
 
