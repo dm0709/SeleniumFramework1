@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class HomePage extends BaseMain {
@@ -31,14 +32,21 @@ public class HomePage extends BaseMain {
         driver.findElement(By.xpath(SignUpBtn)).click();
 //        Thread.sleep(3000);
     }
-    public void openMySite(){
+    public void openMySite() {
         driver.get(MySite);
     }
+    public void openMySite( String site) {
+        driver.get(site);
+    }
+
     public void openMySite1(){
         driver.get(MySite);
         driver.switchTo().newWindow(WindowType.TAB);
         handleTab(0);
         scrollPage(500);
+    }
+    public List<Integer> urlVerification(){
+        return verifyLinkActive();
     }
 
 

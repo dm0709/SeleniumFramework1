@@ -26,6 +26,7 @@ public class BaseTest {
     QuizPage quizPage;
 
 
+
     @BeforeMethod (groups = "smoke,regression", alwaysRun = true)
     public void startdrvOpenSite() throws IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\dm070\\OneDrive\\Desktop\\SeleniumFramework1\\target\\test-classes\\chromedriver.exe");
