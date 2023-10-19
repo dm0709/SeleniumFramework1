@@ -29,8 +29,10 @@ public class BaseTest {
 
     @BeforeMethod (groups = "smoke,regression", alwaysRun = true)
     public void startdrvOpenSite() throws IOException {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\dm070\\OneDrive\\Desktop\\SeleniumFramework1\\target\\test-classes\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\dm070\\OneDrive\\Desktop\\SeleniumFramework1\\target\\test-classes\\chromedriver.exe");//windows
+        System.setProperty("webdriver.chrome.driver", "/home/orange/Documents/chromedriver");//linux
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");//linux only
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         log = Logger.getLogger(getClass().getName());
@@ -49,7 +51,8 @@ public class BaseTest {
         driver.quit();
     }
     public void saveLogs(Logger log) throws IOException {
-        FileHandler fileHandler = new FileHandler("C:\\Users\\dm070\\OneDrive\\Desktop\\SeleniumFramework1\\MyLog.log");
+//        FileHandler fileHandler = new FileHandler("C:\\Users\\dm070\\OneDrive\\Desktop\\SeleniumFramework1\\MyLog.log");//windows
+        FileHandler fileHandler = new FileHandler("/home/orange/Documents/SeleniumFramework1/MyLog");//linux
         log.addHandler(fileHandler);
         SimpleFormatter formatter = new SimpleFormatter();
         fileHandler.setFormatter(formatter);
