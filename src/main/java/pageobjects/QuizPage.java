@@ -3,7 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class QuizPage extends BaseMain{
     //BaseMain baseMain = new BaseMain(driver);
     BaseMain baseMain;
-    public QuizPage(ChromeDriver driver, Logger log) {
+    public QuizPage(RemoteWebDriver driver, Logger log) {
         super(driver,log);
     }
     public By quizTopicsTab = By.xpath("//div[contains(@class,'expertise-areas-item')]");

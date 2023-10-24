@@ -3,7 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -15,9 +15,9 @@ import java.util.logging.Logger;
 
 public class BaseMain {
     SoftAssert softAssert = new SoftAssert();
-    public ChromeDriver driver;
+    public RemoteWebDriver driver;
     public Logger log;
-    public BaseMain (ChromeDriver driver, Logger logger){
+    public BaseMain (RemoteWebDriver driver, Logger logger){
         this.driver = driver;
         this.log = logger;
     }

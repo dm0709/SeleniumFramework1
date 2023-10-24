@@ -2,15 +2,15 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.List;
 import java.util.logging.Logger;
 
 public class HomePage extends BaseMain {
     public String MySite = "https://test.my-fork.com/";
-    public HomePage (ChromeDriver driver, Logger log){
-        super(driver,log);
+    public HomePage (RemoteWebDriver driver, Logger log){
+        super((RemoteWebDriver) driver,log);
     }
 
     private String LogBtn = "//div[@class='menu']/a[@class='menu-item log-in-button']";

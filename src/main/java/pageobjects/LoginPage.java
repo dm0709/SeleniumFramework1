@@ -1,7 +1,7 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class LoginPage extends BaseMain{
 
     BaseMain baseMain;
-    public LoginPage (ChromeDriver driver, Logger log){
+    public LoginPage (RemoteWebDriver driver, Logger log){
         super(driver,log);
     }
     private String MyEmail = "qas@gmail.com";
